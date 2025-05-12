@@ -1,0 +1,25 @@
+{
+    "name": "Help Ever Hurt Never",
+    "albumCover": "@/albumCover.png",
+    "releaseYear": "2020",
+    "tracks": [
+        {
+            "id": 1,
+            "name": "Nan-Nan",
+            "artist": "Fujii Kaze",
+            "path": "/src/assets/songs/Nan-Nan.mp3"
+        },
+        {
+            "id": 2,
+            "name": "Shinunoga E-Wa",
+            "artist": "Fujii Kaze",
+            "path": "/src/assets/songs/Shinunoga_E-Wa.mp3"
+        },
+        {
+            "id": 3,
+            "name": "YASASHISA",
+            "artist": "Fujii Kaze",
+            "path": "/src/assets/songs/YASASHISA.mp3"
+        }
+    ]
+}
