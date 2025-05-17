@@ -1,5 +1,10 @@
 <script setup>
 import { ref, toRefs, onMounted } from 'vue'
+import { useSongStore } from "@/stores/song";
+import { storeToRefs } from "pinia";
+
+const useSong = useSongStore()
+const { isPlaying, currentTrack } = storeToRefs(useSong)
 
 let isHover = ref(false);
 let isTrackTime = ref(null);
@@ -29,16 +34,17 @@ onMounted (() => {
         @mouseleave="isHover = false">
         <div class="flex items-center w-full py-1.5">
             <div v-if="isHover" class="w-[40px] ml-[14px] mr-[6px] cursor-pointer">
-                <i v-if="true" class="fa-solid fa-play text-[16px] text-white p-2"></i>
-                <i v-else class="fa-solid fa-pause text-[16px] text-white p-2"></i>
+                <i v-if="!isPlaying" class="fa-solid fa-play text-[16px] text-white p-2" @click="useSong.playOrPauseThisSong(playlist, track)"></i>
+                <i v-else-if="isPlaying && currentTrack.name !== track.name" class="fa-solid fa-play text-[16px] text-white p-2" @click="useSong.loadSong(playlist, track)"></i>
+                <i v-else class="fa-solid fa-pause text-[16px] text-white p-2" @click="useSong.playOrPauseSong(playlist,track)"></i>
             </div>
             <div v-else class="text-white font-semibold w-[40px] ml-5 p-1">
-                <span>
+                <span :class="{'text-green-500': currentTrack && currentTrack.name == track.name}">
                     {{ index }}
                 </span>
             </div>
             <div>
-                <div class="text-white font-semibold ">
+                <div :class="{'text-green-500': currentTrack && currentTrack.name == track.name}" class="text-white font-semibold ">
                     {{ track.name }}
                 </div>
                 <span class="text-sm font-semibold text-gray-400">Fujii Kaze</span>

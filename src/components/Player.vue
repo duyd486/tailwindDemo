@@ -81,7 +81,7 @@ watch(() => isTrackTimeCurrent.value, () => {
 </script>
 
 <template>
-    <div>
-        
+    <div id="MusicPlayer" class="fixed bottom-0 flex items-center justify-between w-full z-50 h-[90px] bg-black border-t border-t-[#272727]">
+
     </div>
 </template>

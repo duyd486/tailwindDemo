@@ -69,5 +69,5 @@ export const useSongStore = defineStore("song", {
       currentPlaylist = null;
       currentTrack = null;
     },
-  },
+  }
 });
