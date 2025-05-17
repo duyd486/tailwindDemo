@@ -17,13 +17,13 @@ const props = defineProps({
 
 const { track, playlist, index } = toRefs(props);
 
-onMounted (() => {
+onMounted(() => {
     const audio = new Audio(track.value.path);
-    audio.addEventListener('loadedmetadata', function() {
+    audio.addEventListener('loadedmetadata', function () {
         const duration = audio.duration;
         const minutes = Math.floor(duration / 60);
         const seconds = Math.floor(duration % 60);
-        isTrackTime.value = minutes+':'+seconds.toString().padStart(2, '0');
+        isTrackTime.value = minutes + ':' + seconds.toString().padStart(2, '0');
     })
 })
 
@@ -34,17 +34,21 @@ onMounted (() => {
         @mouseleave="isHover = false">
         <div class="flex items-center w-full py-1.5">
             <div v-if="isHover" class="w-[40px] ml-[14px] mr-[6px] cursor-pointer">
-                <i v-if="!isPlaying" class="fa-solid fa-play text-[16px] text-white p-2" @click="useSong.playOrPauseThisSong(playlist, track)"></i>
-                <i v-else-if="isPlaying && currentTrack.name !== track.name" class="fa-solid fa-play text-[16px] text-white p-2" @click="useSong.loadSong(playlist, track)"></i>
-                <i v-else class="fa-solid fa-pause text-[16px] text-white p-2" @click="useSong.playOrPauseSong(playlist,track)"></i>
+                <i v-if="!isPlaying" class="fa-solid fa-play text-[16px] text-white p-2"
+                    @click="useSong.playOrPauseThisSong(playlist, track)"></i>
+                <i v-else-if="isPlaying && currentTrack.name !== track.name"
+                    class="fa-solid fa-play text-[16px] text-white p-2" @click="useSong.loadSong(playlist, track)"></i>
+                <i v-else class="fa-solid fa-pause text-[16px] text-white p-2"
+                    @click="useSong.playOrPauseSong(playlist, track)"></i>
             </div>
             <div v-else class="text-white font-semibold w-[40px] ml-5 p-1">
-                <span :class="{'text-green-500': currentTrack && currentTrack.name == track.name}">
+                <span :class="{ 'text-green-500': currentTrack && currentTrack.name == track.name }">
                     {{ index }}
                 </span>
             </div>
             <div>
-                <div :class="{'text-green-500': currentTrack && currentTrack.name == track.name}" class="text-white font-semibold ">
+                <div :class="{ 'text-green-500': currentTrack && currentTrack.name == track.name }"
+                    class="text-white font-semibold ">
                     {{ track.name }}
                 </div>
                 <span class="text-sm font-semibold text-gray-400">Fujii Kaze</span>

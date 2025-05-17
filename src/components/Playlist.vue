@@ -12,7 +12,7 @@ import SongRow from './SongRow.vue';
         <div class="py-15"></div>
 
         <div class="flex items-center w-full relative h-full">
-            <img src="@/assets/AlbumCover.png" class="w-[240px]">
+            <img :src="playlist.albumCover" class="w-[240px]">
             <div class="w-full ml-5">
 
                 <div class="text-white text-lg font-semibold">Album</div>
@@ -21,13 +21,12 @@ import SongRow from './SongRow.vue';
                 </div>
 
                 <div class="text-gray-300 text-[13px] mt-[20px] flex">
-                    <div class="flex">Fujii Kaze</div>
+                    <div class="flex">{{ playlist.artist }}</div>
                     <i class="fa-solid fa-circle flex mt-[9px] ml-2 mr-2 text-[5px]"></i>
                     <div class="flex">{{ playlist.releaseYear }}</div>
                     <i class="fa-solid fa-circle flex mt-[9px] ml-2 mr-2 text-[5px]"></i>
                     <span class="flex">{{ playlist.tracks.length }} songs</span>
                 </div>
-
             </div>
         </div>
 

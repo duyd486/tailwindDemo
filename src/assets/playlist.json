@@ -1,7 +1,8 @@
 {
     "name": "Help Ever Hurt Never",
-    "albumCover": "@/albumCover.png",
+    "albumCover": "/src/assets/albumCover.png",
     "releaseYear": "2020",
+    "artist": "Fujii Kaze",
     "tracks": [
         {
             "id": 1,

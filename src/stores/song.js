@@ -46,16 +46,18 @@ export const useSongStore = defineStore("song", {
       this.playOrPauseSong();
     },
 
-    prevSong(currentTrack) {
-      let track = Playlist.tracks[currentTrack.id - 2];
-      this.loadSong(Playlist, track);
+    prevSong(currentTrack, playlist) {
+      if(currentTrack.id === 1) return;
+      let track = playlist.tracks[currentTrack.id - 2];
+      this.loadSong(playlist, track);
     },
 
-    nextSong(currentTrack) {
-      if (currentTrack.id === Playlist.track.length) {
-        this.loadSong(Playlist, Playlist.tracks[0]);
+    nextSong(currentTrack, playlist) {
+      if (currentTrack.id === playlist.tracks.length) {
+        this.loadSong(playlist, playlist.tracks[0]);
       } else {
-        this.loadSong(Playlist, Playlist.tracks[currentTrack.id]);
+        this.loadSong(playlist, playlist.tracks[currentTrack.id]);
+        console.log(playlist);
       }
     },
 
@@ -68,6 +70,7 @@ export const useSongStore = defineStore("song", {
       audio = null;
       currentPlaylist = null;
       currentTrack = null;
-    },
-  }
+    }
+  },
+  persist: true
 });

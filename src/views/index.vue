@@ -25,6 +25,6 @@ onMounted(() => {
     <Header />
     <Sidebar />
     <Playlist />
-    <Player />
+    <Player v-if="currentTrack" />
   </div>
 </template>
