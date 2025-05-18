@@ -22,10 +22,9 @@ let openMenu = ref(false);
         <RouterLink to="/" type="button" class="rounded-full p-[1px] cursor-pointer">
           <i class="fa-solid fa-chevron-left text-white"></i>
         </RouterLink>
-        <RouterLink ro="/" type="button" class="rounded-full p-[1px] ml-6 cursor-pointer">
+        <RouterLink to="/" type="button" class="rounded-full p-[1px] ml-6 cursor-pointer">
           <i class="fa-solid fa-chevron-right text-white"></i>
         </RouterLink>
-
       </div>
       <button 
       @click="openMenu = !openMenu" type="button" 

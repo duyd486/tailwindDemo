@@ -3,6 +3,7 @@
     "albumCover": "/src/assets/albumCover.png",
     "releaseYear": "2020",
     "artist": "Fujii Kaze",
+    "type": 1,
     "tracks": [
         {
             "id": 1,

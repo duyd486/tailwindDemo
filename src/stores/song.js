@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import Playlist from "@/components/Playlist.vue";
 
 export const useSongStore = defineStore("song", {
   state: () => ({
@@ -57,12 +56,12 @@ export const useSongStore = defineStore("song", {
         this.loadSong(playlist, playlist.tracks[0]);
       } else {
         this.loadSong(playlist, playlist.tracks[currentTrack.id]);
-        console.log(playlist);
+        console.log(currentTrack);
       }
     },
 
-    playFromFirst() {
-      this.loadSong(Playlist, Playlist.tracks[0]);
+    playFromFirst(playlist) {
+      this.loadSong(playlist, playlist.tracks[0]);
     },
 
     resetState() {

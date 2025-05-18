@@ -1,14 +1,16 @@
 <script setup>
 import playlist from '@/assets/playlist.json'
 import SongRow from './SongRow.vue';
+import { useSongStore } from "@/stores/song";
+import { storeToRefs } from "pinia";
 
+const useSong = useSongStore()
+const {  currentPlaylist } = storeToRefs(useSong)
 
 </script>
 
 <template>
-    <div class="fixed right-0 top-[64px] left-[420px] w-[100%-420px] overflow-auto h-full bg-gradient-to-b from-[#202020] to-black ">
-      <div class="p-8">
-
+    <div class="p-8">
         <div class="py-15"></div>
 
         <div class="flex items-center w-full relative h-full">
@@ -44,6 +46,5 @@ import SongRow from './SongRow.vue';
             <SongRow :playlist="playlist" :track="track" :index="++index" />
         </ul>
 
-      </div>
     </div>
 </template>
