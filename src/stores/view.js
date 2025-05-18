@@ -1,13 +1,18 @@
 import { defineStore } from "pinia";
+import { ref } from "vue";
 
 export const useViewStore = defineStore("view", {
   state: () => ({
-    currentComponent: "HomeComponent",
+    currentComponent: "HomePage",
+    selected: null,
   }),
 
   actions: {
     setComponent(name) {
       this.currentComponent = name;
+    },
+    selectItem(item) {
+      this.selected = item;
     },
   },
 });

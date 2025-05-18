@@ -1,11 +1,14 @@
 <script setup>
 import { ref, computed } from "vue";
-import { RouterLink, RouterView } from 'vue-router'
 import playlist from '@/assets/playlist.json'
+import { useViewStore } from "@/stores/view";
+import { storeToRefs } from "pinia";
+import { useSongStore } from "@/stores/song";
 
-const filter = ref('playlist');
+const useView = useViewStore();
+const useSong = useSongStore();
+
 const search = ref('');
-const selected = ref(null);
 
 const items = ref([
   {
@@ -16,10 +19,6 @@ const items = ref([
   },
   playlist
 ]);
-
-function selectItem(item) {
-  selected.value = item;
-}
 
 </script>
 
@@ -48,8 +47,8 @@ function selectItem(item) {
 
         <div class="space-y-2 overflow-y-auto max-h-[calc(100vh-200px)]">
             <div v-for="(item, index) in items" :key="index"
-                class="flex items-center gap-3 p-2 rounded hover:bg-white/10 cursor-pointer" @click="selectItem(item)"
-                :class="{ 'bg-white/10': selected === item }">
+                class="flex items-center gap-3 p-2 rounded hover:bg-white/10 cursor-pointer" @click="useView.selectItem(item); useView.setComponent('PlaylistPage') ; useSong.setPlaylist(item);"
+                :class="{ 'bg-white/10': useView.selected === item }">
                 <img :src="item.albumCover" class="w-10 h-10 rounded object-cover" v-if="item.albumCover" />
                 <div v-else class="w-10 h-10 bg-white/10 flex items-center justify-center rounded">
                     🎵

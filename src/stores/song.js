@@ -8,6 +8,10 @@ export const useSongStore = defineStore("song", {
     currentTrack: null,
   }),
   actions: {
+    setPlaylist(playlist) {
+      this.currentPlaylist = playlist;
+    },
+
     loadSong(playlist, track) {
       this.currentPlaylist = playlist;
       this.currentTrack = track;
