@@ -25,8 +25,7 @@ const filteredItems = computed(() => {
     else if(filter.value === 'playlist'){
         return items.value.filter(
         (item) =>
-            (item.type === 1 || item.type === 2) &&
-            item.name.toLowerCase().includes(search.value.toLowerCase()));
+            (item.type === 1 || item.type === 2) && item.name.toLowerCase().includes(search.value.toLowerCase()));
     }
     else{
         // Nghệ sĩ
@@ -66,7 +65,7 @@ const filteredItems = computed(() => {
         <div class="space-y-2 overflow-y-auto max-h-[calc(100vh-200px)]">
             <div v-for="(item, index) in filteredItems":key="index"
                 class="flex items-center gap-3 p-2 rounded hover:bg-white/10 cursor-pointer"
-                @click="useView.selectItem(item); useView.setComponent('PlaylistPage'); useSong.setPlaylist(item);"
+                @click="useView.selectItem(item); useView.setComponent('PlaylistPage'); useView.setPlaylistData(item);"
                 :class="{ 'bg-white/10': useView.selected === item }">
                 <img :src="item.albumCover" class="w-10 h-10 rounded object-cover" v-if="item.albumCover" />
                 <div v-else class="w-10 h-10 bg-white/10 flex items-center justify-center rounded">

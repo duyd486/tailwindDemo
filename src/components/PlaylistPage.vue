@@ -1,10 +1,11 @@
 <script setup>
 import SongRow from './SongRow.vue';
 import { useSongStore } from "@/stores/song";
+import { useViewStore } from '@/stores/view';
 import { storeToRefs } from "pinia";
 
-const useSong = useSongStore()
-const {  currentPlaylist } = storeToRefs(useSong)
+const useView = useViewStore()
+const { playlistData } = storeToRefs(useView)
 
 </script>
 
@@ -13,20 +14,20 @@ const {  currentPlaylist } = storeToRefs(useSong)
         <div class="py-15"></div>
 
         <div class="flex items-center w-full relative h-full">
-            <img :src="currentPlaylist.albumCover" class="w-[240px]">
+            <img :src="playlistData.albumCover" class="w-[240px]">
             <div class="w-full ml-5">
 
                 <div class="text-white text-lg font-semibold">Album</div>
                 <div class="text-white text-8xl font-bold text-nowrap">
-                    {{ currentPlaylist.name }}
+                    {{ playlistData.name }}
                 </div>
 
                 <div class="text-gray-300 text-[13px] mt-[20px] flex">
-                    <div class="flex">{{ currentPlaylist.artist }}</div>
+                    <div class="flex">{{ playlistData.artist }}</div>
                     <i class="fa-solid fa-circle flex mt-[9px] ml-2 mr-2 text-[5px]"></i>
-                    <div class="flex">{{ currentPlaylist.releaseYear }}</div>
+                    <div class="flex">{{ playlistData.releaseYear }}</div>
                     <i class="fa-solid fa-circle flex mt-[9px] ml-2 mr-2 text-[5px]"></i>
-                    <span class="flex">{{ currentPlaylist.tracks.length }} songs</span>
+                    <span class="flex">{{ playlistData.tracks.length }} songs</span>
                 </div>
             </div>
         </div>
@@ -41,8 +42,8 @@ const {  currentPlaylist } = storeToRefs(useSong)
 
         <div class="border-b border-b-[#A2A2A2] mt-2"></div>
         <div class="mb-4"></div>
-        <ul class="w-full" v-for="track, index in currentPlaylist.tracks" :key="track">
-            <SongRow :playlist="currentPlaylist" :track="track" :index="++index" />
+        <ul class="w-full" v-for="track, index in playlistData.tracks" :key="track">
+            <SongRow :playlist="playlistData" :track="track" :index="++index" />
         </ul>
 
     </div>

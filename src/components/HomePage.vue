@@ -39,7 +39,7 @@ const recentlyPlayed = [
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 <div v-for="item in recentlyPlayed" :key="item.name"
                     class="bg-neutral-800 rounded overflow-hidden hover:bg-neutral-700 transition cursor-pointer">
-                    <div @click="useView.selectItem(item); useView.setComponent('PlaylistPage') ; useSong.setPlaylist(item);">
+                    <div @click="useView.selectItem(item); useView.setComponent('PlaylistPage') ; useView.setPlaylistData(item);">
                         <img :src="item.albumCover" class="w-[180] h-[180] p-2 rounded-xl object-cover" >
                         <div class="p-3 text-sm font-medium">{{ item.name }}</div>
                     </div>

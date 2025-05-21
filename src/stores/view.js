@@ -5,6 +5,8 @@ export const useViewStore = defineStore("view", {
   state: () => ({
     currentComponent: "HomePage",
     selected: null,
+    playlistData: null,
+    userData: null,
   }),
 
   actions: {
@@ -13,6 +15,9 @@ export const useViewStore = defineStore("view", {
     },
     selectItem(item) {
       this.selected = item;
+    },
+    setPlaylistData(playlist){
+      this.playlistData = playlist;
     },
   },
 });
