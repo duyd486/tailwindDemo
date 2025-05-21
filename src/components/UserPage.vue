@@ -1,3 +1,3 @@
 <template>
-    <h1>ĐÂY LÀ TRANG HỒ SƠ</h1>
+    <h1 class="text-white">ĐÂY LÀ TRANG HỒ SƠ NHÉ</h1>
 </template>

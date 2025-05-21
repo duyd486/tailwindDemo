@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-import playlist from '@/assets/playlist.json'
+import FujiiKazeAlbum from "@/assets/FujiiKazeAlbum.json"
 import { useViewStore } from "@/stores/view";
 import { storeToRefs } from "pinia";
 import { useSongStore } from "@/stores/song";
@@ -17,7 +17,7 @@ const items = ref([
     owner: '4 bài hát',
     albumCover: 'https://cdn-icons-png.flaticon.com/512/833/833472.png',
   },
-  playlist
+  FujiiKazeAlbum
 ]);
 
 </script>

@@ -59,7 +59,7 @@ const useView = useViewStore()
           </button>
           <span v-if="openMenu" class="fixed bg-[#282828] w-[200px] z-50 top-[64px] right-1 p-1">
             <ul class="text-gray-200 font-semibold text-[14px]">
-              <li class="px-3 py-2 hover:bg-[#3E3D3D] cursor-pointer" @click="">Hồ sơ</li>
+              <li class="px-3 py-2 hover:bg-[#3E3D3D] cursor-pointer" @click="useView.setComponent('UserPage'); useView.selectItem(this)">Hồ sơ</li>
               <li class="px-3 py-2 hover:bg-[#3E3D3D] cursor-pointer">Đăng xuất</li>
             </ul>
           </span>
