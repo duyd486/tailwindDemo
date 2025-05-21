@@ -9,13 +9,29 @@ import { useSongStore } from "@/stores/song";
 const useView = useViewStore();
 const useSong = useSongStore();
 
+const filter = ref('all');
 const search = ref('');
 
 const items = ref([
-  FavPlaylist,
-  FujiiKazeAlbum
+    FavPlaylist,
+    FujiiKazeAlbum
 ]);
 
+const filteredItems = computed(() => {
+    if(filter.value === 'all'){
+        return items.value.filter(item =>
+        item.name.toLowerCase().includes(search.value.toLowerCase()));
+    }
+    else if(filter.value === 'playlist'){
+        return items.value.filter(
+        (item) =>
+            (item.type === 1 || item.type === 2) &&
+            item.name.toLowerCase().includes(search.value.toLowerCase()));
+    }
+    else{
+        // Nghệ sĩ
+    }
+});
 </script>
 
 
@@ -30,20 +46,27 @@ const items = ref([
         </div>
 
         <div class="flex gap-2 mb-4">
-            <button class="px-3 py-1 text-sm bg-white/10 text-white rounded-full hover:bg-white/20">
+            <button class="px-3 py-1 text-sm rounded-full hover:bg-white/20"
+                :class="filter === 'all' ? 'bg-white text-black' : 'bg-white/10 text-white'" @click="filter = 'all'">
+                Tất cả
+            </button>
+            <button class="px-3 py-1 text-sm rounded-full hover:bg-white/20"
+                :class="filter === 'playlist' ? 'bg-white text-black' : 'bg-white/10 text-white'" @click="filter = 'playlist'">
                 Danh sách phát
             </button>
-            <button class="px-3 py-1 text-sm bg-white/10 text-white rounded-full hover:bg-white/20">
+            <button class="px-3 py-1 text-sm rounded-full hover:bg-white/20" 
+                :class="filter === 'artist' ? 'bg-white text-black' : 'bg-white/10 text-white'" @click="filter = 'artist'">
                 Nghệ sĩ
             </button>
         </div>
 
         <input type="text" v-model="search" placeholder="Tìm kiếm"
-            class="w-full px-3 py-1.5 rounded bg-white/10 text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-white/20" />
+            class="w-full px-3 py-1.5 rounded bg-white/10 text-white text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-white/20" />
 
         <div class="space-y-2 overflow-y-auto max-h-[calc(100vh-200px)]">
-            <div v-for="(item, index) in items" :key="index"
-                class="flex items-center gap-3 p-2 rounded hover:bg-white/10 cursor-pointer" @click="useView.selectItem(item); useView.setComponent('PlaylistPage') ; useSong.setPlaylist(item);"
+            <div v-for="(item, index) in filteredItems":key="index"
+                class="flex items-center gap-3 p-2 rounded hover:bg-white/10 cursor-pointer"
+                @click="useView.selectItem(item); useView.setComponent('PlaylistPage'); useSong.setPlaylist(item);"
                 :class="{ 'bg-white/10': useView.selected === item }">
                 <img :src="item.albumCover" class="w-10 h-10 rounded object-cover" v-if="item.albumCover" />
                 <div v-else class="w-10 h-10 bg-white/10 flex items-center justify-center rounded">
@@ -53,7 +76,7 @@ const items = ref([
                 <div>
                     <div class="text-white font-medium leading-4">{{ item.name }}</div>
                     <div class="text-gray-400 text-xs">
-                        {{ item.type === 2 ? 'Danh sách phát • ' + item.owner : 'Nghệ sĩ' }}
+                        {{ item.type === 2 ? 'Danh sách phát • ' + item.tracks.length + " bài hát" : 'Album của nghệ sĩ • ' + item.tracks.length + " bài hát"}}
                     </div>
                 </div>
             </div>

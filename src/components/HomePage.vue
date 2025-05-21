@@ -11,6 +11,9 @@ import { useSongStore } from "@/stores/song";
 const useView = useViewStore();
 const useSong = useSongStore();
 
+const filter = ref(1);
+const search = ref('');
+
 const recentlyPlayed = [
     FavPlaylist,
     FujiiKazeAlbum,
