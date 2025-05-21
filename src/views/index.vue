@@ -6,6 +6,7 @@ import Player from "@/components/Player.vue";
 
 import HomePage from "@/components/HomePage.vue"
 import PlaylistPage from '@/components/PlaylistPage.vue'
+import UserPage from "@/components/UserPage.vue";
 
 import { useViewStore } from "@/stores/view";
 import { useSongStore } from "@/stores/song";
@@ -20,6 +21,7 @@ const { currentComponent } = storeToRefs(useView)
 const components = {
   HomePage,
   PlaylistPage,
+  UserPage,
 };
 
 </script>

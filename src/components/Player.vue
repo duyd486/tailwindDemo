@@ -75,6 +75,7 @@ watch(() => audio.value, () => {
 
 watch(() => isTrackTimeCurrent.value, (time) => {
     if (time && time == isTrackTimeTotal.value) {
+        console.log("Song over")
         useSong.nextSong(currentTrack, currentPlaylist)
     }
 })
