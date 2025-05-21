@@ -33,11 +33,11 @@ const useView = useViewStore()
 
         <!-- Search Box -->
         <div class="flex items-center bg-neutral-800 text-sm text-white rounded-full px-3 py-1 w-80 h-11">
-          <i class="fa-solid fa-magnifying-glass text-[18px] w-4 h-4 mr-4 ml-1 text-gray-400"></i>
-          <input type="text" placeholder="Bạn muốn phát nội dung gì?"
+          <i class="fa-solid fa-magnifying-glass text-[18px] w-4 h-4 mr-4 ml-1" :class="useView.currentComponent === 'SearchPage' ? 'text-white' : 'text-gray-400'"></i>
+          <input type="text" placeholder="Bạn muốn phát nội dung gì?" @click="useView.setComponent('SearchPage'); useView.selectItem(this)"
             class="bg-transparent focus:outline-none w-full" />
           <button class="ml-2">
-            <!-- <TrashIcon class="w-4 h-4 text-gray-400" /> -->
+            
           </button>
         </div>
       </div>

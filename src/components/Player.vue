@@ -16,7 +16,7 @@ let seekerContainer = ref(null)
 let range = ref(0)
 
 onMounted(() => {
-    // currentTrack = null
+    isPlaying.value = false
     if (audio.value) {
         setTimeout(() => {
             timeupdate()

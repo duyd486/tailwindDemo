@@ -1,0 +1,25 @@
+{
+    "name": "Bài Hát yêu thích",
+    "albumCover": "/src/assets/FavCover.jpg",
+    "type": 2,
+    "tracks": [
+        {
+            "id": 1,
+            "name": "Gió vẫn hát",
+            "artist": "Long Phạm",
+            "path": "/src/assets/songs/GioVanHat.mp3"
+        },
+        {
+            "id": 2,
+            "name": "Landslide",
+            "artist": "Oh Wonder",
+            "path": "/src/assets/songs/Landslide.mp3"
+        },
+        {
+            "id": 3,
+            "name": "Run free",
+            "artist": "Deep Chills",
+            "path": "/src/assets/songs/Run_free.mp3"
+        }
+    ]
+}

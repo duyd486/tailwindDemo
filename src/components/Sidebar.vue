@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import FujiiKazeAlbum from "@/assets/FujiiKazeAlbum.json"
+import FavPlaylist from "@/assets/FavPlaylist"
 import { useViewStore } from "@/stores/view";
 import { storeToRefs } from "pinia";
 import { useSongStore } from "@/stores/song";
@@ -11,12 +12,7 @@ const useSong = useSongStore();
 const search = ref('');
 
 const items = ref([
-  {
-    name: 'Bài hát đã thích',
-    type: 2,
-    owner: '4 bài hát',
-    albumCover: 'https://cdn-icons-png.flaticon.com/512/833/833472.png',
-  },
+  FavPlaylist,
   FujiiKazeAlbum
 ]);
 
