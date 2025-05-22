@@ -56,14 +56,10 @@ export const useSongStore = defineStore("song", {
     },
 
     nextSong(currentTrack, playlist) {
-      console.log(currentTrack);
-      console.log(playlist);
       if (currentTrack.id === playlist.tracks.length) {
         this.loadSong(playlist, playlist.tracks[0]);
-        console.log(currentTrack);
       } else {
         this.loadSong(playlist, playlist.tracks[currentTrack.id]);
-        console.log(currentTrack);
       }
     },
 

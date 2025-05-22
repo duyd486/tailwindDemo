@@ -5,6 +5,8 @@ export const useViewStore = defineStore("view", {
   state: () => ({
     currentComponent: "HomePage",
     selected: null,
+    page: null,
+    isFullscreen: false,
     playlistData: null,
     userData: null,
   }),
@@ -16,8 +18,21 @@ export const useViewStore = defineStore("view", {
     selectItem(item) {
       this.selected = item;
     },
-    setPlaylistData(playlist){
+    setPlaylistData(playlist) {
       this.playlistData = playlist;
     },
+    toggleFullscreen() {
+      const el = this.page;
+      if (!document.fullscreenElement) {
+        el.requestFullscreen();
+        this.isFullscreen = true;
+      } else {
+        document.exitFullscreen();
+        this.isFullscreen = false;
+      }
+    },
+    setFullscreenPage(page){
+      this.page = page;
+    }
   },
 });

@@ -3,7 +3,7 @@ import { ref, watch, onMounted } from "vue";
 import { RouterLink, RouterView } from 'vue-router'
 import { useSongStore } from "@/stores/song";
 import { storeToRefs } from "pinia";
-import PlayerVolume from "./PlayerVolume.vue";
+import PlayerFunc from "./PlayerFunc.vue";
 
 const useSong = useSongStore()
 const { isPlaying, audio, currentPlaylist, currentTrack } = storeToRefs(useSong)
@@ -139,7 +139,7 @@ watch(() => isTrackTimeCurrent.value, (time) => {
         </div>
 
         <div class="flex items-center w-1/4 justify-end pr-10">
-            <PlayerVolume />
+            <PlayerFunc />
         </div>
     </div>
 </template>

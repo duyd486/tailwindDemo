@@ -1,9 +1,11 @@
 <script setup>
 import { ref, watch, onMounted } from "vue";
 import { useSongStore } from "@/stores/song";
+import { useViewStore } from "@/stores/view";
 import { storeToRefs } from "pinia";
 
 const useSong = useSongStore();
+const useView = useViewStore();
 const { audio } = storeToRefs(useSong);
 
 let isHover = ref(false);
@@ -28,5 +30,9 @@ onMounted(() => {
     <div class="pointer-events-none mt-[6px] absolute h-[4px] z-10 inset-y-0 left-0 w-0" :style="'width: ${vol}%;'"
       :class="isHover ? 'bg-green-500' : 'bg-white'"></div>
     <div class="absolute h-[4px] z-[-0] mt-[6px] inset-y-0 left-0 w-full bg-gray-500 rounded-full"></div>
+  </div>
+  <div class=" ml-4" >
+    <i v-if="useView.isFullscreen"  class="fa-solid fa-compress text-white text-xl mt-1 cursor-pointer" @click="useView.toggleFullscreen"></i>
+    <i v-else class="fa-solid fa-expand text-white text-xl mt-1 cursor-pointer" @click="useView.toggleFullscreen"></i>
   </div>
 </template>
