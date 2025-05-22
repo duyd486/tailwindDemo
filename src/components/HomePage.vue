@@ -33,9 +33,9 @@ const recentlyPlayed = [
 </script>
 
 <template>
-    <div class="text-white p-6 space-y-10">
+    <div class="text-white p-6 space-y-10 rounded-[24px]">
         <div class="overflow-x-auto scrollbar-hide">
-            <h2 class="text-xl font-bold mb-4">Gần đây</h2>
+            <h2 class="text-xl font-bold mb-4">Album có bài hát bạn thích</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 <div v-for="item in recentlyPlayed" :key="item.name"
                     class="bg-neutral-800 rounded overflow-hidden hover:bg-neutral-700 transition cursor-pointer">

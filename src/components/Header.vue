@@ -16,7 +16,7 @@ const useView = useViewStore()
       fixed 
       right-0 
       z-20 
-      bg-black 
+      bg-[#BC4D15] 
       flex 
       items-center 
       justify-between 
@@ -27,15 +27,18 @@ const useView = useViewStore()
 
       <!-- Home & Search -->
       <div class="flex self-center items-center gap-2">
-        <button class="bg-neutral-800 p-2 rounded-full hover:bg-neutral-700" @click="useView.setComponent('HomePage'); useView.selectItem(this)">
-          <i class="fa-solid fa-house w-[24px] h-[24px] text-[20px] mt-[4px]" :class="useView.currentComponent === 'HomePage' ? 'text-white' : 'text-gray-400'"></i>
+        <button class="bg-[#1D1512] p-2 rounded-full hover:bg-neutral-700" @click="useView.setComponent('HomePage'); useView.selectItem(this)">
+          <i class="fa-solid fa-house text-[#FFE5D6] w-[24px] h-[24px] text-[20px] mt-[4px]" :class="useView.currentComponent === 'HomePage' ? 'text-[#FFE5D6]' : 'text-[#FFE5D6]/30'"></i>
         </button>
 
         <!-- Search Box -->
-        <div class="flex items-center bg-neutral-800 text-sm text-white rounded-full px-3 py-1 w-80 h-11">
-          <i class="fa-solid fa-magnifying-glass text-[18px] w-4 h-4 mr-4 ml-1" :class="useView.currentComponent === 'SearchPage' ? 'text-white' : 'text-gray-400'"></i>
+        <div class="flex items-center bg-[#1D1512] text-sm text-[#FFE5D6]/20 rounded-full px-3 py-1 w-80 h-11">
+          <i
+            class="fa-solid fa-magnifying-glass text-[18px] w-4 h-4 mr-4 ml-1 rounded-full bg-[#1D1512]"
+            :class="useView.currentComponent === 'SearchPage' ? 'text-[#FFE5D6]' : 'text-[#FFE5D6]/30'"
+          ></i>          
           <input type="text" placeholder="Bạn muốn phát nội dung gì?" @click="useView.setComponent('SearchPage'); useView.selectItem(this)"
-            class="bg-transparent focus:outline-none w-full" />
+            style="font-family: 'Montserrat', sans-serif;" class="text-[#FFE5D6]/20 bg-transparent focus:outline-none w-full" />
           <button class="ml-2">
             
           </button>
@@ -45,10 +48,10 @@ const useView = useViewStore()
 
       <!-- Right Controls -->
       <div class="flex items-center gap-4">
-        <button class="bg-white text-black font-semibold px-4 py-1 rounded-full text-sm hover:bg-neutral-200">
+        <button style="font-family: 'Montserrat', sans-serif;" class="bg-[#1D1512] text-[#FFE5D6] font-semibold px-4 py-1 rounded-full text-sm hover:bg-neutral-200">
           Khám phá Premium
         </button>
-        <i class="fa-solid fa-bell w-5 h-5 text-gray-400"></i>
+        <i class="fa-solid fa-bell w-5 h-5 text-[#FFE5D6]"></i>
         <div class="w-8 h-8 mr-[10px] rounded-full flex items-center justify-center text-white font-bold">
           <button @click="openMenu = !openMenu" type="button" class=" cursor-pointer">
             <div class="flex items-center">

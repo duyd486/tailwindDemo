@@ -35,32 +35,37 @@ const filteredItems = computed(() => {
 
 
 <template>
-    <div class="w-[420px] h-[100%] fixed bottom-0 top-[64px] left-0 z-50 p-6 bg-[#121212] ">
+    <div class="fixed top-0 bottom-0 left-0 w-full bg-[#BC4D15] z-0"></div>
+    <div class="w-[420px] h-[100%] fixed bottom-0 top-[64px] left-1.5 z-50 p-6 bg-[#1D1512] rounded-[24px]">
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-white text-lg font-bold">Thư viện</h2>
+            <h2 style="font-family: 'Montserrat', sans-serif;" class= "text-[#FFE5D6] text-lg font-extrabold">Thư viện</h2>
             <div class="flex items-center gap-2">
-                <button class="text-white text-sm hover:underline">Tạo</button>
-                <button class="text-sm text-white">+</button>
+                <button style="font-family: 'Montserrat', sans-serif;"
+                class="flex items-center gap-2 px-3 py-1 rounded-full bg-[#47342D] text-sm" 
+                :class="filter === 'add' ? 'bg-[#FFE5D6] text-[#47342D]' : 'bg-[#47342D] text-[#FFE5D6]'" @click="filter = 'add'" >
+                <span class="text-base font-semibold">+</span>
+                <span class="font-semibold">Tạo</span>
+                </button>
             </div>
         </div>
 
         <div class="flex gap-2 mb-4">
-            <button class="px-3 py-1 text-sm rounded-full hover:bg-white/20"
-                :class="filter === 'all' ? 'bg-white text-black' : 'bg-white/10 text-white'" @click="filter = 'all'">
+            <button style="font-family: 'Montserrat', sans-serif;" class="font-semibold bg-[#47342D] px-3 py-1 text-sm rounded-full hover:bg-[#47342D]/20"
+                :class="filter === 'all' ? 'bg-[#FFE5D6] text-[#47342D]' : 'bg-[#47342D] text-[#FFE5D6]'" @click="filter = 'all'">
                 Tất cả
             </button>
-            <button class="px-3 py-1 text-sm rounded-full hover:bg-white/20"
-                :class="filter === 'playlist' ? 'bg-white text-black' : 'bg-white/10 text-white'" @click="filter = 'playlist'">
+            <button style="font-family: 'Montserrat', sans-serif;"  class="font-semibold bg-[#47342D] px-3 py-1 text-sm rounded-full hover:bg-[#47342D]/20"
+                :class="filter === 'playlist' ? 'bg-[#FFE5D6] text-[#47342D]' : 'bg-[#47342D] text-[#FFE5D6]'" @click="filter = 'playlist'">
                 Danh sách phát
             </button>
-            <button class="px-3 py-1 text-sm rounded-full hover:bg-white/20" 
-                :class="filter === 'artist' ? 'bg-white text-black' : 'bg-white/10 text-white'" @click="filter = 'artist'">
+            <button style="font-family: 'Montserrat', sans-serif;"  class="font-semibold bg-[#47342D] px-3 py-1 text-sm rounded-full hover:bg-[#47342D]/20" 
+                :class="filter === 'artist' ? 'bg-[#FFE5D6] text-[#47342D]' : 'bg-[#47342D] text-[#FFE5D6]'" @click="filter = 'artist'">
                 Nghệ sĩ
             </button>
         </div>
-
-        <input type="text" v-model="search" placeholder="Tìm kiếm"
-            class="w-full px-3 py-1.5 rounded bg-white/10 text-white text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-white/20" />
+        
+        <input type="text" v-model="search" placeholder="Tìm kiếm" style="font-family: 'Montserrat', sans-serif;" 
+            class="w-full px-3 py-1.5 rounded-full border border-[#BC4D15] bg-[#1D1512] text-[#FFE5D6] text-sm mb-4 focus:ring-11 focus:ring-[#BC4D15] focus:outline-none" />
 
         <div class="space-y-2 overflow-y-auto max-h-[calc(100vh-200px)]">
             <div v-for="(item, index) in filteredItems":key="index"
@@ -73,8 +78,8 @@ const filteredItems = computed(() => {
                 </div>
 
                 <div>
-                    <div class="text-white font-medium leading-4">{{ item.name }}</div>
-                    <div class="text-gray-400 text-xs">
+                    <div style="font-family: 'Montserrat', sans-serif;" class="text-[#FFE5D6] font-semibold leading-4">{{ item.name }}</div>
+                    <div style="font-family: 'Montserrat', sans-serif;" class="text-[#FFE5D6]/5 text-s font-medium">
                         {{ item.type === 2 ? 'Danh sách phát • ' + item.tracks.length + " bài hát" : 'Album của nghệ sĩ • ' + item.tracks.length + " bài hát"}}
                     </div>
                 </div>
