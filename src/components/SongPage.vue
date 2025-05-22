@@ -12,7 +12,8 @@ const { currentTrack } = storeToRefs(useSong);
 </script>
 
 <template>
-    <div class="flex h-screen">
+    <img :src="currentTrack['thumbnail']" class="absolute inset-0 w-full h-full object-cover blur-lg opacity-40"/>
+    <div class="flex relative z-10 h-screen">
         <!-- Bên trái: ảnh -->
         <div class="w-1/2 flex items-center justify-end mb-[90px]">
             <img :src="currentTrack['thumbnail']" alt="Album" class=" w-[500px] h-[500px] rounded-xl" />
