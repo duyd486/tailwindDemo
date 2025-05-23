@@ -15,7 +15,8 @@ let volume = ref(null);
 onMounted(() => {
   volume.value.addEventListener('input', (e) => {
     audio.value.volume = e.currentTarget.value / 100;
-  })
+  });
+  useView.listenFullscreenChange();
 })
 
 </script>

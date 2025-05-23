@@ -39,7 +39,7 @@ onMounted(() => {
     <Header />
     <Sidebar />
     <div
-      class="fixed right-0 top-[64px] left-[420px] w-[100%-420px] overflow-auto h-full bg-gradient-to-b from-[#202020] to-black ">
+      class="fixed right-1.5 top-[64px] left-[432px] w-[100%-420px] overflow-auto h-full bg-[#1D1512] rounded-[24px]">
       <component :is="components[currentComponent]"></component>
     </div>
     <div ref="player">

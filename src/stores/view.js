@@ -33,6 +33,11 @@ export const useViewStore = defineStore("view", {
     },
     setFullscreenPage(page){
       this.page = page;
-    }
+    },
+    listenFullscreenChange() {
+      document.addEventListener('fullscreenchange', () => {
+        this.isFullscreen = !!document.fullscreenElement;
+      });
+    },
   },
 });

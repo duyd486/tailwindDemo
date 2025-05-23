@@ -33,7 +33,7 @@ const recentlyPlayed = [
 </script>
 
 <template>
-    <div class="text-white p-6 space-y-10 rounded-[24px]">
+    <div class="text-white p-6 space-y-10 ">
         <div class="overflow-x-auto scrollbar-hide">
             <h2 class="text-xl font-bold mb-4">Album có bài hát bạn thích</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">

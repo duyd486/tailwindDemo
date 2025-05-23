@@ -48,10 +48,9 @@ const useView = useViewStore()
 
       <!-- Right Controls -->
       <div class="flex items-center gap-4">
-        <button style="font-family: 'Montserrat', sans-serif;" class="bg-[#1D1512] text-[#FFE5D6] font-semibold px-4 py-1 rounded-full text-sm hover:bg-neutral-200">
-          Khám phá Premium
-        </button>
-        <i class="fa-solid fa-bell w-5 h-5 text-[#FFE5D6]"></i>
+        <div class="text-white">
+          XIN CHÀO
+        </div>
         <div class="w-8 h-8 mr-[10px] rounded-full flex items-center justify-center text-white font-bold">
           <button @click="openMenu = !openMenu" type="button" class=" cursor-pointer">
             <div class="flex items-center">

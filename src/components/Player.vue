@@ -84,21 +84,21 @@ watch(() => isTrackTimeCurrent.value, (time) => {
 
 <template>
     <div id="MusicPlayer"
-        class="fixed bottom-0 flex items-center justify-between w-full z-50 h-[90px] bg-black border-t border-t-[#272727]">
+        class="fixed bottom-0 flex items-center justify-between w-full z-50 h-[90px] bg-[#181413] border-t border-t-[#272727]">
         <div class=" flex items-center w-1/4 ">
             <div class="flex items-center ml-4">
                 <img class="rounded-sm shadow-2xl" width="55" :src="currentTrack['thumbnail']" />
                 <div class="ml-4">
-                    <div class="text-[14px] text-white hover:underline cursor-pointer">
+                    <div style="font-family: 'Montserrat', sans-serif;" class="text-[17px] text-[#FFE5D6] font-bold hover:underline cursor-pointer">
                         {{ currentTrack.name }}
                     </div>
-                    <div class="text-[11px] text-gray-400 hover:text-white hover:underline cursor-pointer">
+                    <div style="font-family: 'Montserrat', sans-serif;" class="text-[13px] text-[#FFE5D6]/30 font-medium hover:text-white hover:underline cursor-pointer">
                         {{ currentTrack.artist }}
                     </div>
                 </div>
             </div>
             <div class="flex items-center ml-8">
-                <i class="fa-regular fa-square-plus text-white text-[20px]" color="#1BD760"></i>
+                <i class="fa-regular fa-square-plus text-[#FFE5D6] text-[23px]" color="#FFE5D6"></i>
             </div>
         </div>
 
@@ -106,15 +106,15 @@ watch(() => isTrackTimeCurrent.value, (time) => {
             <div class=" flex-col items-center justify-center">
                 <div class="flex items-center justify-center h-[30px]">
                     <button class="mx-2" @click="useSong.prevSong(currentTrack, currentPlaylist)">
-                        <i class="fa-solid fa-backward-step text-white text-[25px]"></i>
+                        <i class="fa-solid fa-backward-step text-[#FFE5D6] text-[25px]"></i>
                     </button>
                     <button class="p-1 rounded-full mx-3 bg-white"
                         @click="useSong.playOrPauseThisSong(currentPlaylist, currentTrack)">
-                        <i v-if="!isPlaying" class="fa-solid fa-circle-play text-[30px]"></i>
+                        <i v-if="!isPlaying" class="fa-solid fa-circle-play text-gray text-[30px]"></i>
                         <i v-else class="fa-solid fa-circle-pause text-[30px]"></i>
                     </button>
                     <button class="mx-2" @click="useSong.nextSong(currentTrack, currentPlaylist)">
-                        <i class="fa-solid fa-forward-step text-white text-[25px]"></i>
+                        <i class="fa-solid fa-forward-step text-[#FFE5D6] text-[25px]"></i>
                     </button>
                 </div>
             </div>
