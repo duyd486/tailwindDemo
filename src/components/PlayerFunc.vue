@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch, onMounted } from "vue";
+import { Icon } from '@iconify/vue';
 import { useSongStore } from "@/stores/song";
 import { useViewStore } from "@/stores/view";
 import { storeToRefs } from "pinia";

@@ -1,5 +1,5 @@
 <script setup>
-
+import { Icon } from '@iconify/vue';
 </script>
 <template>
     <div class="text-white space-y-10 rounded-[24px] bg-[#1D1512] w-full h-[76%]">

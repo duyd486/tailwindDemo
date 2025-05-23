@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-
+import { Icon } from '@iconify/vue';
 import FujiiKazeAlbum from "@/assets/FujiiKazeAlbum.json"
 import FavPlaylist from "@/assets/FavPlaylist"
 

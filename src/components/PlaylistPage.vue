@@ -1,5 +1,6 @@
 <script setup>
 import SongRow from './SongRow.vue';
+import { Icon } from '@iconify/vue';
 import { useSongStore } from "@/stores/song";
 import { useViewStore } from '@/stores/view';
 import { storeToRefs } from "pinia";
