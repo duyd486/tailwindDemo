@@ -10,8 +10,7 @@ const useView = useViewStore()
 
 </script>
 <template>
-  <div>
-    <div class="w-[100%] h-[64px] fixed right-0 z-20 bg-[#BC4D15] flex items-center justify-between">
+	<div class="w-[100%] h-[64px] fixed right-0 z-20 bg-[#BC4D15] flex items-center justify-between">
 		<div class="flex items-center gap-4 ml-8" @click="useView.setComponent('HomePage'); useView.selectItem(this)">
 			<Icon icon="tabler:poo-filled"
 				class="text-white transition duration-200 cursor-pointer size-10 hover:text-black text-[64px]" />
@@ -58,11 +57,10 @@ const useView = useViewStore()
 					<ul class="text-gray-200 font-semibold text-[14px]">
 						<li class="px-3 py-2 hover:bg-[#3E3D3D] cursor-pointer"
 							@click="useView.setComponent('UserPage'); useView.selectItem(this)">Hồ sơ</li>
-						<li class="px-3 py-2 hover:bg-[#3E3D3D] cursor-pointer">Đăng xuất</li>
+						<li class="px-3 py-2 hover:bg-[#3E3D3D] cursor-pointer" @click="logout();">Đăng xuất</li>
 					</ul>
 				</span>
 			</div>
 		</div>
 	</div>
-  </div>
 </template>

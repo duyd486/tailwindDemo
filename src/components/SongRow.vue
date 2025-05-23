@@ -29,18 +29,17 @@ onMounted(() => {
 })
 
 </script>
-
 <template>
-    <li class="flex items-center justify-between rounded-md hover:bg-[#2A2929]" @mouseenter="isHover = true"
+<li class="flex items-center justify-between rounded-md hover:bg-[#2A2929]" @mouseenter="isHover = true"
         @mouseleave="isHover = false">
         <div class="flex items-center w-full py-1.5">
             <div v-if="isHover" class="w-[40px] ml-[14px] mr-[6px] cursor-pointer">
-                <i v-if="!isPlaying" class="fa-solid fa-play text-[16px] text-white p-2"
-                    @click="useSong.playOrPauseThisSong(playlist, track)"></i>
-                <i v-else-if="isPlaying && currentTrack.name !== track.name"
-                    class="fa-solid fa-play text-[16px] text-white p-2" @click="useSong.loadSong(playlist, track)"></i>
-                <i v-else class="fa-solid fa-pause text-[16px] text-white p-2"
-                    @click="useSong.playOrPauseSong(playlist, track)"></i>
+                <Icon icon="material-symbols:play-arrow-rounded" v-if="!isPlaying" class="size-7 text-white"
+                    @click="useSong.playOrPauseThisSong(playlist, track)"/>
+                <Icon icon="material-symbols:play-arrow-rounded" v-else-if="isPlaying && currentTrack.name !== track.name"
+                    class="size-7 text-white" @click="useSong.loadSong(playlist, track)"/>
+                <Icon icon="material-symbols:pause-rounded" v-else class="size-7 text-white"
+                    @click="useSong.playOrPauseSong(playlist, track)"/>
             </div>
             <div v-else class="text-white font-semibold w-[40px] ml-5 p-1">
                 <span :class="{ 'text-green-500': currentTrack && currentTrack.name == track.name }">

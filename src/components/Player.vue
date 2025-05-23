@@ -107,15 +107,15 @@ watch(() => isTrackTimeCurrent.value, (time) => {
             <div class=" flex-col items-center justify-center">
                 <div class="flex items-center justify-center h-[30px]">
                     <button class="mx-2" @click="useSong.prevSong(currentTrack, currentPlaylist)">
-                        <i class="fa-solid fa-backward-step text-[#FFE5D6] text-[25px]"></i>
+                        <Icon icon="fa6-solid:backward-step" class=" text-[#FFE5D6] size-7"/>
                     </button>
-                    <button class="p-1 rounded-full mx-3 bg-white"
+                    <button class="p-1 rounded-full mx-3"
                         @click="useSong.playOrPauseThisSong(currentPlaylist, currentTrack)">
-                        <i v-if="!isPlaying" class="fa-solid fa-circle-play text-gray text-[30px]"></i>
-                        <i v-else class="fa-solid fa-circle-pause text-[30px]"></i>
+                        <Icon icon="material-symbols:play-circle-rounded" v-if="!isPlaying" class="size-12 text-white"/>
+                        <Icon icon="material-symbols:pause-circle" v-else class="size-12 text-white"/>
                     </button>
                     <button class="mx-2" @click="useSong.nextSong(currentTrack, currentPlaylist)">
-                        <i class="fa-solid fa-forward-step text-[#FFE5D6] text-[25px]"></i>
+                        <Icon icon="fa6-solid:forward-step" class=" text-[#FFE5D6] size-7"/>
                     </button>
                 </div>
             </div>
